@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <!-- Website Title & Description for Search Engine purposes -->
+        <title>Demo for bootstrap and D3JS</title>
+        <meta name="description" content="Demo with the new Twitter Bootstrap 3 and D3JS (Visuallzation Tool).">
+
+        <!-- Mobile viewport optimized -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/custom.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container" id="main">
+
+            <div class="navbar navbar-fixed-top navbar-info">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
+
+                <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                           <a href="#"> Home </a>
+                        </li>
+                        <li class="dropdown navbar-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Go to pie chart</a>
+                                </li>
+                                <li>
+                                    <a href="#">Go to bar chart</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                	<a href="#">Sports table</a>
+                                </li>
+                            </ul><!-- end dropdown-menu -->
+                        </li><!-- end dropdown -->	
+                    </ul>
+                </div>
+
+            </div><!-- end navbar -->
+
+            <div class="row" id="svg">
+
+            </div><!-- end row -->
+
+        </div><!-- end container -->
+
+        <footer>
+
+        </footer>
+
+
+        <!-- All Javascript at the bottom of the page for faster page loading -->
+
+        <!-- First try for the online version of jQuery-->
+        <script src="http://code.jquery.com/jquery.js"></script>
+
+        <!-- If no online access, fallback to our hardcoded version of jQuery -->
+        <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <!-- Bootstrap JS -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- D3JS  -->
+        <script src="js/d3.min.js"></script>
+
+        <!-- Custom JS -->
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>
