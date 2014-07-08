@@ -11,7 +11,7 @@ Updated: July 2014
 $(function() {
 	
 	var width = 960,
-    height = 800,
+    height = 8000,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
