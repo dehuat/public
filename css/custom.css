@@ -98,7 +98,15 @@ ul.unstyled {
   stroke: #fff;
 }
 
+path {
+    stroke-width: 3;
+    fill: none;
+}
 
+.slice text {
+    font-size: 16pt;
+    font-family: Arial;
+}  
 /* --------------------------------------
    Media Queries
    -------------------------------------- */

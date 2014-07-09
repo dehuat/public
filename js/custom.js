@@ -3,14 +3,14 @@
 My Custom JS
 ============
 
-Author:  Dehua	
+Author:  Dehua  
 Updated: July 2014
 
 */
 
 $(function() {
-	
-	var width = 960,
+  
+  var width = 960,
     height = 8000,
     radius = Math.min(width, height) / 2;
 
@@ -28,9 +28,7 @@ var pie = d3.layout.pie()
     .value(function(d) { return d.population; });
 
    
-d3.json("data/mydata", function(mydata) {
-  console.log(mydata);
-
+d3.json("data/sdata.json", function(mydata) {
   var data=d3.nest()
     .key(function(d) {return d.sport;})
     .sortKeys(d3.ascending)
@@ -50,14 +48,14 @@ d3.json("data/mydata", function(mydata) {
     .attr("height", height)
     .attr("id","mysvg")
     .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + 100 + ")");
+    .attr("transform", "translate(" + width / 3 + "," + 100 + ")");
 
 
   mysvg.selectAll("rect")
     .data(data)
     .enter()
       .append("rect")
-      .attr("width", function(d){ return d.values.bronzemedals * 100; })
+      .attr("width", function(d){ return d.values.bronzemedals * 10; })
       .attr("height", 48)
       .attr("y", function(d, i){ return i*50 ; })
       .attr("fill","blue");
@@ -73,7 +71,7 @@ d3.json("data/mydata", function(mydata) {
 
 
 
-	// var g = mysvg.selectAll(".arc")
+  // var g = mysvg.selectAll(".arc")
  //    .data(pie(mydata))
  //    .enter()
  //    .append("g")
@@ -95,5 +93,5 @@ d3.json("data/mydata", function(mydata) {
 });
 
 
-	
+  
 });
