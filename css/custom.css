@@ -63,37 +63,6 @@ ul.unstyled {
 	margin: 0 20px 10px 0;
 }
 
-.thumbnails {
-	margin: 20px 0;
-}
-
-.thumbnail {
-	position: relative;
-}
-
-.thumbnail h3 {
-	font-size: 16px;
-	margin: 0 0 10px;
-	line-height: 20px;
-}
-
-.thumbnail .price {
-	font-size: 22px;
-	position: absolute;
-	top: -10px;
-	right: -10px;
-	padding: 10px;
-}
-
-.thumbnail .price sup {
-	font-weight: normal;
-	font-size: 12px;
-}
-
-.thumbnail span.glyphicon {
-	margin-right: 5px;
-}
-
 .arc path {
   stroke: #fff;
 }
@@ -104,9 +73,23 @@ path {
 }
 
 .slice text {
-    font-size: 16pt;
+    font-size: 12px;
     font-family: Arial;
 }  
+
+td {
+	width:150px;
+	
+}
+
+tr:nth-child(even){
+	background-color: silver;
+}
+
+.bgSilver {
+	background-color: silver;
+}
+
 /* --------------------------------------
    Media Queries
    -------------------------------------- */
@@ -123,52 +106,4 @@ path {
 	}
 	
 }
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
-	
-	#myCarousel .item { height: 310px; }
-	
-	#slide1 {
-		background: url('../../images/carousel_small_01.jpg') top center no-repeat;
-	}
-	
-	#slide2 {
-		background: url('../../images/carousel_small_02.jpg') top center no-repeat;
-	}
-	
-	#slide3 {
-		background: url('../../images/carousel_small_03.jpg') top center no-repeat;
-	}
-	
-	.carousel-caption {
-		font-size: 16px;
-	}
-	
-	.carousel-caption h4 {
-		font-size: 22px;
-	}
-	
-}
-
-/* Large desktop */
-@media (min-width: 1200px) {
-
-	#myCarousel .item { height: 500px; }
-	
-	#slide1 {
-		background: url('../../images/carousel_large_01.jpg') top center no-repeat;
-	}
-	
-	#slide2 {
-		background: url('../../images/carousel_large_02.jpg') top center no-repeat;
-	}
-	
-	#slide3 {
-		background: url('../../images/carousel_large_03.jpg') top center no-repeat;
-	}
-
-}
-
-
 

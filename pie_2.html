@@ -18,6 +18,7 @@
 
     </head>
     <body>
+        <div class="container" id="main">
 
             <div class="navbar navbar-fixed-top navbar-info">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" type="button">
@@ -37,7 +38,7 @@
                         <li class="dropdown navbar-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts <strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
-                               <li>
+                              <li>
                                     <a href="pie.html">Pie chart</a>
                                 </li>
                                 <li>
@@ -53,14 +54,9 @@
                 </div>
 
             </div><!-- end navbar -->
-            <div class="container">
-        
-        <div class="page-header"  style="margin-left:200px;margin-top:80px;">
-            <h3>Type of sports by the number of bronze medals</h3>
-        </div>
-
-
-            
+            <div class="page-header">
+                <h4></h4>
+            </div>
 
             <div class="row" id="svg">
 
@@ -69,14 +65,13 @@
         </div><!-- end container -->
 
          <!-- footer -->
-        <div class="clearfix"></div>
-        <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
             <div class="container">
                 <div class="col-sm-6">
                     <p class="navbar-text">Site for D3JS examples</p>
                 </div> 
                 <div class="col-sm-6">
-                    <a href="https://github.com/dehuat/public" class="navbar-btn btn-primary btn pull-right">Get Source Code</a>
+                    <a href="https://github.com/dehuat/public" class="navbar-btn btn-primary btn pull-right">Check it on github</a>
                 </div>       
             </div>
 
@@ -98,7 +93,7 @@
         <script src="js/d3.min.js"></script>
 
         <!-- Custom JS -->
-        <script src="js/bar_d3.js"></script>
+        <script src="js/pie_d3.js"></script>
 
     </body>
 </html>

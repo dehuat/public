@@ -64,8 +64,8 @@ $(function () {
         arcs.append("svg:text") //add a label to each slice
             .attr("transform", function (d) { //set the label's origin to the center of the arc
                 //we have to make sure to set these before calling arc.centroid
-                d.innerRadius = 0;
-                d.outerRadius = r;
+                d.innerRadius = 1.3*r;
+                d.outerRadius = 3*r;
                 return "translate(" + arc.centroid(d) + ")"; //this gives us a pair of coordinates like [50, 50]
             })
             .attr("text-anchor", "middle") //center the text on it's origin

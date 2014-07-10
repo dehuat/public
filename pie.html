@@ -1,87 +1,219 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
 
-        <!-- Website Title & Description for Search Engine purposes -->
-        <title>Demo for bootstrap and D3JS</title>
-        <meta name="description" content="Demo with the new Twitter Bootstrap 3 and D3JS (Visuallzation Tool).">
+<head>
 
-        <!-- Mobile viewport optimized -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Website Title & Description for Search Engine purposes -->
+    <title>Demo for bootstrap and D3JS</title>
+    <meta name="description" content="Demo with the new Twitter Bootstrap 3 and D3JS (Visuallzation Tool).">
 
-        <!-- Bootstrap CSS -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <!-- Custom CSS -->
-        <link href="css/custom.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    </head>
-    <body>
-        <div class="container" id="main">
 
-            <div class="navbar navbar-fixed-top navbar-info">
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" type="button">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">
-                    <img src="images/logo.png" alt="Logo">
-                </a>
+</head>
 
-                <div class="nav-collapse collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                           <a href="index.html"> Home </a>
+<body>
+
+
+    <div class="navbar navbar-fixed-top navbar-info">
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">
+            <img src="images/logo.png" alt="Logo">
+        </a>
+
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="index.html"> Home </a>
+                </li>
+                <li class="dropdown navbar-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts <strong class="caret"></strong></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="pie.html">Pie chart</a>
                         </li>
-                        <li class="dropdown navbar-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts <strong class="caret"></strong></a>
-                            <ul class="dropdown-menu">
-                              <li>
-                                    <a href="pie.html">Pie chart</a>
-                                </li>
-                                <li>
-                                    <a href="bar.html">Bar chart</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="table.html">Sports table</a>
-                                </li>
-                            </ul><!-- end dropdown-menu -->
-                        </li><!-- end dropdown -->	
+                        <li>
+                            <a href="bar.html">Bar chart</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="table.html">Sports table</a>
+                        </li>
                     </ul>
-                </div>
+                    <!-- end dropdown-menu -->
+                </li>
+                <!-- end dropdown -->
+            </ul>
+        </div>
 
-            </div><!-- end navbar -->
+    </div>
+    <!-- end navbar -->
+    <div class="page-header">
+        <h4></h4>
+    </div>
 
-            <div class="row" id="svg">
+    <div class="row" id="svg">
 
-            </div><!-- end row -->
+    </div>
+    <!-- end row -->
 
-        </div><!-- end container -->
+    <div id="pieChart"></div>
 
-        <footer>
+    <!-- footer -->
+    <div class="clearfix"></div>
+        <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="col-sm-6">
+                <p class="navbar-text">Site for D3JS examples</p>
+            </div>
+            <div class="col-sm-6">
+                <a href="https://github.com/dehuat/public" class="navbar-btn btn-primary btn pull-right">Get Source Code</a>
+            </div>
+        </div>
 
-        </footer>
+    </div>
 
 
-        <!-- All Javascript at the bottom of the page for faster page loading -->
+    <!-- All Javascript at the bottom of the page for faster page loading -->
 
-        <!-- First try for the online version of jQuery-->
-        <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- First try for the online version of jQuery-->
+    <script src="http://code.jquery.com/jquery.js"></script>
 
-        <!-- If no online access, fallback to our hardcoded version of jQuery -->
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <!-- If no online access, fallback to our hardcoded version of jQuery -->
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')
+    </script>
 
-        <!-- Bootstrap JS -->
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
-        <!-- D3JS  -->
-        <script src="js/d3.min.js"></script>
+    <!-- D3JS  -->
+    <script src="js/d3.min.js"></script>
+    <script src="js/d3pie.min.js"></script>
 
-        <!-- Custom JS -->
-        <script src="js/pie_d3.js"></script>
+    <script>
+        var color = d3.scale.category20();
 
-    </body>
+        d3.json("data/sdata.json", function (rawdata) {
+            // filter the data
+            var data = d3.nest()
+                .key(function (d, i) {
+                    return d.country;
+                })
+                .sortKeys(d3.ascending)
+                .rollup(function (d) {
+                    return {
+                        totalmedals: d3.sum(d, function (g) {
+                            return (g.bronzemedals + g.silvermedals + g.goldmedals);
+                        })
+                    };
+
+                })
+                .entries(rawdata);
+
+            // console.log(data);
+
+            //create dataset for the pie plugin
+            var content = new Array();
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    var subCont = new Object();
+                    subCont.label = data[key].key;
+                    subCont.value = data[key].values.totalmedals;
+                    subCont.color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                    content.push(subCont);
+
+                }
+            }
+            var jsonArray = JSON.parse(JSON.stringify(content))
+            console.log("jsonArray");
+            console.log(jsonArray);
+
+            var finalData = new Object();
+
+            finalData = {
+                "sortOrder": "label-desc",
+                "content": content
+            };
+              
+            console.log(finalData);
+            var pie = new d3pie("pieChart", {
+                "header": {
+                    "title": {
+                        "text": "Total number of medals by country",
+                        "fontSize": 24,
+                        "font": "open sans"
+                    },
+                    "subtitle": {
+                        "color": "#999999",
+                        "fontSize": 12,
+                        "font": "open sans"
+                    },
+                    "titleSubtitlePadding": 9
+                },
+                "footer": {
+                    "color": "#999999",
+                    "fontSize": 10,
+                    "font": "open sans",
+                    "location": "bottom-left"
+                },
+                "size": {
+                    "pieOuterRadius":"80%",
+                    "canvasHeight": 2000,
+                    "canvasWidth": 1500
+                },
+                "data": finalData,
+                "labels": {
+                    "outer": {
+                        // "hideWhenLessThanPercentage": 1,
+                        "pieDistance": 32
+                    },
+                    "inner": {
+                        "format": "value",
+                        "hideWhenLessThanPercentage": 1
+                    },
+                    "mainLabel": {
+                        "fontSize": 12
+                    },
+                    "percentage": {
+                        "color": "#ffffff",
+                        "decimalPlaces": 0
+                    },
+                    "value": {
+                        "color": "#adadad",
+                        "fontSize": 11
+                    },
+                    "lines": {
+                        "enabled": true
+                    }
+                },
+                "effects": {
+                    "pullOutSegmentOnClick": {
+                        "effect": "linear",
+                        "speed": 400,
+                        "size": 8
+                    }
+                },
+                "misc": {
+                    "gradient": {
+                        "enabled": true,
+                        "percentage": 100
+                    }
+                },
+                "callbacks": {}
+            });
+
+        });
+    </script>
+</body>
+
 </html>

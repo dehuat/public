@@ -11,10 +11,14 @@ Updated: July 2014
 */
 $(function () {
 
-    var width = 960,
-        height = 100;
-    var r  =100;    
+    
 
+    var width = 960,
+        height = 200;
+
+    /**
+     * create a html table with given data
+     */
     function tabulate(data, columns, table) {
 
         thead = table.append("thead"),
@@ -54,9 +58,6 @@ $(function () {
             })
             .enter()
             .append("td")
-            .filter(function(d) { 
-              console.log(d);
-              return d['Goldmedals'] > 10 ; })
             .attr("style", "font-family: Courier")
             .html(function (d) {
                 return d.value;
@@ -65,24 +66,29 @@ $(function () {
         return table;
     }
 
+    /**
+     * return the data with a athlete between the age of 22 and 29(inclusive) that has a medal
+     */
+    function datafilter(mydata) {
+        var result = mydata.filter(function (g) {
+            //get the number of total medals 
+            var totals = g.bronzemedals + g.silvermedals + g.goldmedals;
+            return (g.age >= 22 && g.age <= 29 && totals > 0);
+        });
+        return result;
+    }
+
     d3.json("data/sdata.json", function (rawdata) {
-        var data = d3.nest()
+        // filter the raw data
+        var data = datafilter(rawdata);
+        // get the result
+        data = d3.nest()
             .key(function (d) {
                 return d.sport;
             })
             .sortKeys(d3.descending)
             .rollup(function (d) {
                 return {
-                    // check if there is a athlete between the age of 22 and 29(inclusive) that has a medal
-                    // 0 for no; >0 for yes
-                    eligible: d3.sum(d, function (g) {
-                        var totals = g.bronzemedals + g.silvermedals + g.goldmedals;
-                        if (g.age > 22 && g.age <= 29) {
-                            return totals;
-                        } else {
-                            return 0;
-                        }
-                    }),
                     goldmedals: d3.sum(d, function (g) {
                         return g.goldmedals;
                     }),
@@ -94,15 +100,18 @@ $(function () {
                     })
                 };
             })
-            .entries(rawdata);
+            .entries(data);
 
-        console.log(data);
-
+        // crete the table
         var mytable = d3.select("#svg").append("table")
-            .attr("style", "margin-left: 250px; margin-top:100px;");
+            .attr("id","sportsTable")
+            .attr("style", "margin-left: 250px; margin-botton:40px;");
         // render the table
         var sportsTable = tabulate(data, ["Sport Name", "Goldmedals", "Silvermedals", "Bronzemedals", "Totalmedals"], mytable);
 
-
     });
+
+    
+
+    
 });

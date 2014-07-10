@@ -38,7 +38,7 @@ $(function () {
             .attr("height", height)
             .attr("id", "mysvg")
             .append("g")
-            .attr("transform", "translate(" + 300 + "," + 80 + ")");
+            .attr("transform", "translate(" + 300 + "," + 40 + ")");
 
         var max_n = 0;
         for (var d in data) {
@@ -47,6 +47,15 @@ $(function () {
         //console.log("max_n is : " + max_n);
         var dx = width / max_n - 5;
         var dy = height / data.length - 8;
+
+        //title
+        // var title = mysvg.append("text")
+        // .attr("x", (width / 3))             
+        // .attr("y", -40)
+        // .attr("text-anchor", "middle")  
+        // .style("font-size", "18px") 
+        // //.style("text-decoration", "underline")  
+        // .text("Type of sports by the number of bronze medals");
 
         // bars
         var bars = mysvg.selectAll(".bar")

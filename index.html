@@ -18,7 +18,7 @@
 
     </head>
     <body>
-        <div class="container" id="main">
+        
 
             <div class="navbar navbar-fixed-top navbar-info">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" type="button">
@@ -55,15 +55,36 @@
 
             </div><!-- end navbar -->
 
-            <div class="row" id="svg">
+            <div class="container">
+        
+                <div class="page-header">
+                    <h1></h1>
+                </div>
 
-            </div><!-- end row -->
+                <div class="panel panel-default col-sm-12">
+                  <div class="panel-heading">Dataset Problems:</div>
+                      <div class="panel-body">
+                        <p>1, It is not a valid json dataset. 
+                            I have to convert it to a valid one and save it as a local data file (data/sdata.json). </p>
+                        <p>2, 5 records have no age information.</p>
+                      </div>
+                </div>
+            </div>
 
-        </div><!-- end container -->
+        
+        <!-- footer -->
+        <div class="clearfix"></div>
+        <div class="navbar navbar-inverse navbar-static-bottom">
+            <div class="container">
+                <div class="col-sm-6">
+                    <p class="navbar-text">Site for D3JS examples</p>
+                </div> 
+                <div class="col-sm-6">
+                    <a href="https://github.com/dehuat/public" class="navbar-btn btn-primary btn pull-right">Get Source Code</a>
+                </div>       
+            </div>
 
-        <footer>
-
-        </footer>
+        </div>
 
 
         <!-- All Javascript at the bottom of the page for faster page loading -->
