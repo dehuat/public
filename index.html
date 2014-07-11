@@ -1,108 +1,127 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
 
-        <!-- Website Title & Description for Search Engine purposes -->
-        <title>Demo for bootstrap and D3JS</title>
-        <meta name="description" content="Demo with the new Twitter Bootstrap 3 and D3JS (Visuallzation Tool).">
+<head>
 
-        <!-- Mobile viewport optimized -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Website Title & Description for Search Engine purposes -->
+    <title>Demo for bootstrap and D3JS</title>
 
-        <!-- Bootstrap CSS -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <!-- Custom CSS -->
-        <link href="css/custom.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    </head>
-    <body>
-        
+</head>
 
-            <div class="navbar navbar-fixed-top navbar-info">
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse" type="button">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">
-                    <img src="images/logo.png" alt="Logo">
-                </a>
+<body>
 
-                <div class="nav-collapse collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                           <a href="index.html"> Home </a>
-                        </li>
-                        <li class="dropdown navbar-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts <strong class="caret"></strong></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="pie.html">Pie chart</a>
-                                </li>
-                                <li>
-                                    <a href="bar.html">Bar chart</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                	<a href="table.html">Sports table</a>
-                                </li>
-                            </ul><!-- end dropdown-menu -->
-                        </li><!-- end dropdown -->	
-                    </ul>
+<!-- header -->
+
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+
+            <div class="nav-collapse collapse navHeaderCollapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active">
+                        <a href="index.html"> Home </a>
+                    </li>
+                    <li class="dropdown navbar-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts <strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="pie.html">Pie chart</a>
+                            </li>
+                            <li>
+                                <a href="bar.html">Bar chart</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="table.html">Sports table</a>
+                            </li>
+                        </ul>
+                        <!-- end dropdown-menu -->
+                    </li>
+                    <!-- end dropdown -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end navbar -->
+    
+    <div class="container">
+        <div class="page-header">
+            <h2>Home page <small> site usage</small></h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="panel panel-primary col-sm-6">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dataset Problems:</h3>
                 </div>
-
-            </div><!-- end navbar -->
-
-            <div class="container">
-        
-                <div class="page-header">
-                    <h1></h1>
-                </div>
-
-                <div class="panel panel-default col-sm-12">
-                  <div class="panel-heading">Dataset Problems:</div>
-                      <div class="panel-body">
-                        <p>1, It is not a valid json dataset. 
-                            I have to convert it to a valid one and save it as a local data file (data/sdata.json). </p>
-                        <p>2, 5 records have no age information.</p>
-                      </div>
+                <div class="panel-body">
+                    <p>1, Dataset from the URL is not a valid one. I have to convert it to a local json data file (data/sdata.json).</p>
+                    <p>2, 5 records have no age information.</p>
                 </div>
             </div>
-
-        
-        <!-- footer -->
-        <div class="clearfix"></div>
-        <div class="navbar navbar-inverse navbar-static-bottom">
-            <div class="container">
-                <div class="col-sm-6">
-                    <p class="navbar-text">Site for D3JS examples</p>
-                </div> 
-                <div class="col-sm-6">
-                    <a href="https://github.com/dehuat/public" class="navbar-btn btn-primary btn pull-right">Get Source Code</a>
-                </div>       
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">    
+            <div class="col-sm-3"></div>
+            <div class="panel panel-primary col-sm-6">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Usage:</h3>
+                </div>
+                <div class="panel-body">
+                    <p>1, Click Home will back to this page.</p>
+                    <p>2, Click Charts will get a drop down menu and could go to the answers for the questions</p>
+                    <p>3, Click Get Source Code button at the footer, you will be redirected to github.com and see the source code.</p>
+                </div>
             </div>
-
+            <div class="col-sm-3"></div>
         </div>
 
+    </div>
 
-        <!-- All Javascript at the bottom of the page for faster page loading -->
 
-        <!-- First try for the online version of jQuery-->
-        <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- footer -->
+    <div class="clearfix"></div>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="col-sm-6">
+                <p class="navbar-text">Site for D3JS examples</p>
+            </div>
+            <div class="col-sm-6">
+                <a href="https://github.com/dehuat/public" class="navbar-btn btn-success btn pull-right">Get Source Code</a>
+            </div>
+        </div>
 
-        <!-- If no online access, fallback to our hardcoded version of jQuery -->
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    </div>
 
-        <!-- Bootstrap JS -->
-        <script src="bootstrap/js/bootstrap.min.js"></script>
 
-        <!-- D3JS  -->
-        <script src="js/d3.min.js"></script>
+    <!-- All Javascript at the bottom of the page for faster page loading -->
 
-        <!-- Custom JS -->
-        <script src="js/custom.js"></script>
+    <!-- First try for the online version of jQuery-->
+    <script src="http://code.jquery.com/jquery.js"></script>
 
-    </body>
+    <!-- If no online access, fallback to our hardcoded version of jQuery -->
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
