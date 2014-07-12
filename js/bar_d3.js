@@ -14,7 +14,9 @@ $(function () {
 
     var color = d3.scale.category20();
 
-    d3.json("data/sdata.json", function (rawdata) {
+    //d3.json("data/sdata.json", function (rawdata) {
+    $.getJSON("https://apps.mathbiol.org/sdata?callback=?",
+        function(rawdata){    
         //1, filter the raw data
         var data = d3.nest()
             .key(function (d) {

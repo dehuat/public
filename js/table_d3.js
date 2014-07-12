@@ -78,7 +78,9 @@ $(function () {
         return result;
     }
 
-    d3.json("data/sdata.json", function (rawdata) {
+    //d3.json("data/sdata.json", function (rawdata) {
+    $.getJSON("https://apps.mathbiol.org/sdata?callback=?",
+        function(rawdata){      
         // filter the raw data
         var data = datafilter(rawdata);
         // get the result

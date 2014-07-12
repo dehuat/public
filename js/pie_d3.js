@@ -13,7 +13,9 @@ $(function () {
         r = 300; //radius
     var color = d3.scale.category20();
 
-    d3.json("data/sdata.json", function (rawdata) {
+    //d3.json("data/sdata.json", function (rawdata) {
+    $.getJSON("https://apps.mathbiol.org/sdata?callback=?",
+        function(rawdata){      
         var data = d3.nest()
             .key(function (d) {
                 return d.country;
